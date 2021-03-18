@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hj.pracproject.freeboard.mapper.FreeboardSQLMapper">
+
+	<insert id="insertContent">
+		INSERT INTO PP_Freeboard VALUES (
+		    PP_Freeboard_seq.nextval,
+		    #{member_no},
+		    #{freeboard_title},
+		    #{freeboard_content},
+		    0,
+		    SYSDATE
+		)
+	</insert>
+
+	<select id="selectAll" resultType="com.hj.pracproject.vo.FreeboardVO">
+	<![CDATA[
+		SELECT * FROM PP_Freeboard ORDER BY freeboard_no DESC	
+	]]>
+	</select>
+
+</mapper>
